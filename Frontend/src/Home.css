@@ -1,0 +1,179 @@
+/* 🌌 GLOBAL BACKGROUND */
+body {
+  background: radial-gradient(ellipse at bottom, #1b2531 0%, #090a0f 100%);
+  font-family: Arial, sans-serif;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* 🌌 FIXED INFINITE BACKGROUND LAYER */
+.space-background {
+  position: fixed;
+  top: 0; 
+  left: 0;
+  width: 100%;
+  height: 300vh; /* covers large scroll area */
+  z-index: -1;
+  overflow: hidden;
+}
+
+/* ⭐ SMALL STARS */
+.stars {
+  width: 2px;
+  height: 2px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: transparent;
+
+  box-shadow:
+    50px 100px #fff, 120px 300px #fff, 200px 500px #fff,
+    350px 250px #fff, 400px 150px #fff, 600px 900px #fff,
+    750px 1100px #fff, 900px 400px #fff, 1100px 800px #fff,
+    1300px 1400px #fff, 1500px 1600px #fff, 1700px 200px #fff,
+    40px 180px #fff, 90px 260px #fff, 160px 340px #fff,
+    210px 480px #fff, 260px 560px #fff, 320px 620px #fff,
+    380px 700px #fff, 420px 760px #fff, 480px 820px #fff;
+
+  animation: animStar 35s linear infinite;
+}
+
+.stars:after {
+  content: "";
+  position: absolute;
+  top: 3000px;
+  width: 2px;
+  height: 2px;
+  box-shadow: inherit;
+}
+
+/* ⭐ MEDIUM STARS */
+.stars2 {
+  width: 4px;
+  height: 4px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.8;
+
+  box-shadow:
+    100px 120px #fff, 250px 800px #fff, 380px 560px #fff,
+    600px 1500px #fff, 850px 900px #fff, 1100px 450px #fff,
+    1600px 950px #fff, 180px 300px #fff, 420px 900px #fff;
+
+  animation: animStar 45s linear infinite;
+}
+
+.stars2:after {
+  content: "";
+  position: absolute;
+  top: 3000px;
+  width: 4px;
+  height: 4px;
+  box-shadow: inherit;
+}
+
+/* ⭐ LARGE STARS */
+.stars3 {
+  width: 5px;
+  height: 5px;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  box-shadow:
+    300px 200px #fff, 900px 500px #fff,
+    1200px 800px #fff, 1500px 1500px #fff,
+    200px 1600px #fff, 800px 1800px #fff;
+
+  animation: animStar 60s linear infinite;
+}
+
+.stars3:after {
+  content: "";
+  position: absolute;
+  top: 3000px;
+  width: 5px;
+  height: 5px;
+  box-shadow: inherit;
+}
+
+/* ⭐ STAR MOVEMENT */
+@keyframes animStar {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-3000px); }
+}
+
+/* 🫧 FLOATING BUBBLES */
+.bubbles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  background: rgba(173, 216, 230, 0.35);
+  border-radius: 50%;
+  filter: blur(2px);
+
+  box-shadow:
+    150px 1800px rgba(173,216,230,0.35),
+    400px 1600px rgba(173,216,230,0.35),
+    700px 1900px rgba(173,216,230,0.25),
+    1000px 1700px rgba(173,216,230,0.30),
+    1300px 2000px rgba(173,216,230,0.40);
+
+  animation: bubbleRise 25s linear infinite;
+}
+
+.bubbles::after {
+  content: "";
+  position: absolute;
+  top: 3500px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(173,216,230,0.4);
+  filter: blur(3px);
+  box-shadow: inherit;
+}
+
+@keyframes bubbleRise {
+  from { transform: translateY(0px) scale(1); }
+  to   { transform: translateY(-3200px) scale(1.3); }
+}
+
+/* 📄 PAGE CONTENT OVERLAY */
+.page-content {
+  position: relative;
+  z-index: 10;
+}
+
+/* 🔥 SECTION SEPARATOR */
+.section-separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 60px 0;
+  gap: 12px;
+}
+
+.section-separator .dot {
+  font-size: 20px;
+  color: #ff4f7b;
+  text-shadow: 0 0 6px #ff4f7b;
+}
+
+.section-separator .line {
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    #ff4f7b,
+    transparent
+  );
+  opacity: 0.8;
+  border-radius: 4px;
+}
+

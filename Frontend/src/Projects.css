@@ -1,0 +1,112 @@
+/* Wrapper */
+.projects-wrapper {
+  padding: 100px 0;
+  color: white;
+  text-align: center;
+}
+
+/* Title */
+.projects-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 50px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+ 
+/* Projects Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  gap: 35px;
+}
+
+/* Project Card */
+.project-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  overflow: hidden;
+  transition: 0.3s ease;
+  box-shadow: 0 0 0px #ff4f7b;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+}
+
+/* Image */
+.project-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Info Section */
+.project-info {
+  padding: 20px;
+}
+
+.project-info h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.project-info p {
+  color: #ddd;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* Buttons Container */
+.project-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+/* Buttons */
+.project-btn {
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: 0.3s ease;
+  display: inline-block;
+}
+
+/* Live Demo Button */
+.live-btn {
+  border: 2px solid #ff2d62;
+  color: white;
+}
+
+.live-btn:hover {
+  background: #ff2d62;
+  box-shadow: 0 0 10px #ff4f7b;
+}
+
+/* Code Button */
+.code-btn {
+  background: transparent;
+  border: 2px solid #ff4f7b;
+  color: white;
+}
+
+.code-btn:hover {
+  background: #ff4f7b;
+  color: white;
+  box-shadow: 0 0 10px #ff4f7b;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .project-buttons {
+    flex-direction: column;
+  }
+}

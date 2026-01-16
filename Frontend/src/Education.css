@@ -1,0 +1,90 @@
+/* WRAPPER */
+.edu-exp-wrapper {
+  padding: 100px 0;
+  color: white;
+  width: 100%;
+}
+
+/* HEADINGS ROW */
+.edu-exp-headings {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.edu-exp-headings h1 {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #ff2d62;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* GRID LAYOUT */
+.edu-exp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+
+/* CARDS */
+.card {
+  background: transparent;
+  padding: 25px 25px;
+  border-radius: 10px;
+  border: 1px solid #222;
+  box-shadow: 0 0 6px rgba(0,0,0,0.6);
+  transition: 0.3s ease;
+  margin: 1rem;
+}
+
+.card:hover {
+  box-shadow: 0 0 12px #ff2d62;
+  border-color: #ff2d62;
+}
+
+/* TYPOGRAPHY */
+.card-title {
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.card-year {
+  color: #ff2d62;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+/* NEW — DURATION */
+.card-duration {
+  color: #ff78a0;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.card-school,
+.card-grade,
+.card-role {
+  font-size: 0.95rem;
+  color: #ddd;
+  margin-bottom: 4px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .edu-exp-headings {
+    grid-template-columns: 1fr;
+  }
+
+  .edu-exp-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .edu-exp-headings h1 {
+    margin-bottom: 20px;
+  }
+}
