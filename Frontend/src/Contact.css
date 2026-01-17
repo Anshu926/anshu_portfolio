@@ -109,3 +109,8 @@
     height: 240px;
   }
 }
+@media (max-width: 768px) {
+  .contact-model-box {
+    display: none !important;
+  }
+}
