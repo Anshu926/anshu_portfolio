@@ -6,6 +6,7 @@ import Navbar from "./Navbar.jsx";
 import About from "./About.jsx";
 import Skills from "./Skills.jsx";
 import Education from "./Education.jsx";
+import Experience from "./Experience.jsx";
 import Projects from "./Projects.jsx";
 import Contact from "./Contact.jsx";
 import Footer from "./Footer.jsx";
@@ -89,6 +90,26 @@ function Home() {
           viewport={{ once: true, amount: 0.2 }}
         >
           <Education />
+        </motion.section>
+
+        {/* 🔹 SEPARATOR */}
+        <div className="section-separator">
+          <span className="dot">•</span>
+          <span className="dot">•</span>
+          <div className="line"></div>
+          <span className="dot">•</span>
+          <span className="dot">•</span>
+        </div>
+
+        {/* 🔹 Experience SECTION */}
+        <motion.section
+          id="experience"
+          variants={sectionVariant}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <Experience />
         </motion.section>
 
         {/* 🔹 SEPARATOR */}

@@ -1,5 +1,5 @@
 /* WRAPPER */
-.edu-exp-wrapper {
+.exp-wrapper {
   padding: 80px 0;
   color: white;
   width: 100%;
@@ -13,17 +13,16 @@
   margin-bottom: 25px;
 }
 
-/* 2 COLUMN STRUCTURE */
-.edu-two-col {
+/* GRID — 2 columns */
+.exp-two-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 50px;
-  margin-bottom: 40px;
+  gap: 40px;
 }
 
-/* CARD STYLING */
-.col-box {
-  padding: 20px 25px;
+/* EXPERIENCE CARD */
+.exp-box {
+  padding: 22px 25px;
   border: 1px solid #222;
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.02);
@@ -32,15 +31,15 @@
   overflow: hidden;
 }
 
-/* Hover Effects: Glow + Lift */
-.col-box:hover {
+/* Hover Glow */
+.exp-box:hover {
   border-color: #ff2d62;
   box-shadow: 0 0 18px rgba(255, 45, 98, 0.45);
   transform: translateY(-6px);
 }
 
-/* Shine Animation */
-.col-box::after {
+/* Shine Effect */
+.exp-box::after {
   content: "";
   position: absolute;
   top: -120%;
@@ -50,22 +49,17 @@
   background: linear-gradient(
     120deg,
     transparent,
-    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.08),
     transparent
   );
   transition: 0.6s ease;
 }
 
-.col-box:hover::after {
+.exp-box:hover::after {
   top: 0;
 }
 
-/* HIDE RIGHT EMPTY BOX FOR NOW */
-.right-empty {
-  display: none;
-}
-
-/* TEXT STYLES */
+/* TEXT */
 .title {
   font-size: 1.1rem;
   font-weight: 700;
@@ -79,43 +73,18 @@
   margin-bottom: 8px;
 }
 
-.school {
+.role {
   color: #ccc;
   margin-bottom: 6px;
 }
 
-.grade {
+.duration {
   color: #ff78a0;
 }
 
-/* CUSTOM SEPARATOR */
-.section-separator {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin: 50px 0;
-}
-
-.dot {
-  color: #ff2d62;
-  font-size: 22px;
-}
-
-.line {
-  height: 2px;
-  width: 40%;
-  background: #444;
-  border-radius: 50px;
-}
-
-/* RESPONSIVE DESIGN */
+/* MOBILE RESPONSIVE */
 @media (max-width: 900px) {
-  .edu-two-col {
+  .exp-two-col {
     grid-template-columns: 1fr;
-  }
-
-  .section-heading {
-    text-align: center;
   }
 }

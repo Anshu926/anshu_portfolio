@@ -51,7 +51,7 @@ function Skills() {
 
   return (
     <div className="skills-wrapper" id="skills">
-      <h2 className="skills-title">My Skills</h2>
+      <h2 className="skills-title">      My Skills</h2>
 
       <Marquee
         pauseOnHover
@@ -70,3 +70,4 @@ function Skills() {
 }
 
 export default Skills;
+ 

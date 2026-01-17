@@ -58,8 +58,10 @@ export default function ContactModel() {
     controls.minPolarAngle = Math.PI / 2;
     controls.maxPolarAngle = Math.PI / 2;
 
-    controls.autoRotate = true;
+    controls.autoRotate = false;
     controls.autoRotateSpeed = 2.2;
+
+    
 
     /* 🎨 LOAD GLB MODEL (Optimized) */
     let model = null;
@@ -69,17 +71,35 @@ export default function ContactModel() {
       (gltf) => {
         model = gltf.scene;
 
-        // Reduce material/shading cost
+        // Optimize model
         model.traverse((child) => {
           if (child.isMesh) {
             child.castShadow = false;
             child.receiveShadow = false;
-            child.material.flatShading = true; // ⚡ HUGE FPS BOOST
+            child.material.flatShading = true;
           }
         });
 
-        model.scale.set(2.4, 2.4, 2.4);
+        // Ensure model is straight (fix tilt issue)
+        // Ensure model is straight (facing camera)
+        model.rotation.set(0, -Math.PI / 3, 0);
+
+        // Responsive scale function
+        const setModelScale = () => {
+          if (window.innerWidth < 600) {
+            model.scale.set(1.4, 1.4, 1.4);
+          } else if (window.innerWidth < 1024) {
+            model.scale.set(2.0, 2.0, 2.0);
+          } else {
+            model.scale.set(2.4, 2.4, 2.4);
+          }
+        };
+
+        setModelScale();
+        window.addEventListener("resize", setModelScale);
+
         model.position.set(0, -0.05, 0);
+
         scene.add(model);
       },
       undefined,

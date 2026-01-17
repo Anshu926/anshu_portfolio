@@ -7,20 +7,44 @@ function Navbar() {
   // Smooth scroll handler
   const smoothScroll = (sectionId) => {
     const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({
+
+    if (!section) return;
+
+    section.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    setTimeout(() => {
+      const navbar = document.querySelector(".custom-navbar");
+      const navbarHeight = navbar ? navbar.offsetHeight : 100;
+
+      window.scrollBy({
+        top: -navbarHeight - 20,
         behavior: "smooth",
-        block: "start",
       });
+    }, 300);
+  };
+
+  // CLOSE dropdown after click (mobile)
+  const closeDropdown = () => {
+    const navbar = document.getElementById("navbarCentered");
+    if (navbar && navbar.classList.contains("show")) {
+      navbar.classList.remove("show");
     }
   };
 
   // Scroll Spy Logic
   useEffect(() => {
-    const sections = ["about", "education", "projects", "contact"];
+    const sections = [
+      "about",
+      "education",
+      "experience",
+      "projects",
+      "contact",
+    ];
 
     const handleScroll = () => {
-      const scrollPos = window.scrollY + 200; // offset for navbar
+      const navbar = document.querySelector(".custom-navbar");
+      const navbarHeight = navbar ? navbar.offsetHeight : 100;
+      const scrollPos = window.scrollY + navbarHeight + 20;
 
       for (let id of sections) {
         const sec = document.getElementById(id);
@@ -40,10 +64,15 @@ function Navbar() {
 
   return (
     <nav className="navbar navbar-expand-lg custom-navbar">
-      <div className="container-fluid d-flex justify-content-between align-items-center">
+      <div className="container-fluid d-flex align-items-center">
+        {/* Mobile Center Title */}
+        <div className="navbar-brand mx-auto d-lg-none portfolio-title">
+          Portfolio Website
+        </div>
+
         {/* Hamburger */}
         <button
-          className="navbar-toggler"
+          className="navbar-toggler ms-auto"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarCentered"
@@ -51,7 +80,7 @@ function Navbar() {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        {/* Menu Items */}
+        {/* Menu */}
         <div
           className="collapse navbar-collapse justify-content-center"
           id="navbarCentered"
@@ -59,10 +88,11 @@ function Navbar() {
           <ul className="navbar-nav gap-4 text-center">
             <li className="nav-item">
               <span
-                className={`nav-link ${
-                  active === "about" ? "active-link" : ""
-                }`}
-                onClick={() => smoothScroll("about")}
+                className={`nav-link ${active === "about" ? "active-link" : ""}`}
+                onClick={() => {
+                  smoothScroll("about");
+                  closeDropdown();
+                }}
               >
                 About
               </span>
@@ -70,21 +100,35 @@ function Navbar() {
 
             <li className="nav-item">
               <span
-                className={`nav-link ${
-                  active === "education" ? "active-link" : ""
-                }`}
-                onClick={() => smoothScroll("education")}
+                className={`nav-link ${active === "education" ? "active-link" : ""}`}
+                onClick={() => {
+                  smoothScroll("education");
+                  closeDropdown();
+                }}
               >
-                Academic
+                Education
               </span>
             </li>
 
             <li className="nav-item">
               <span
-                className={`nav-link ${
-                  active === "projects" ? "active-link" : ""
-                }`}
-                onClick={() => smoothScroll("projects")}
+                className={`nav-link ${active === "experience" ? "active-link" : ""}`}
+                onClick={() => {
+                  smoothScroll("experience");
+                  closeDropdown();
+                }}
+              >
+                Experience
+              </span>
+            </li>
+
+            <li className="nav-item">
+              <span
+                className={`nav-link ${active === "projects" ? "active-link" : ""}`}
+                onClick={() => {
+                  smoothScroll("projects");
+                  closeDropdown();
+                }}
               >
                 Projects
               </span>
@@ -92,10 +136,11 @@ function Navbar() {
 
             <li className="nav-item">
               <span
-                className={`nav-link ${
-                  active === "contact" ? "active-link" : ""
-                }`}
-                onClick={() => smoothScroll("contact")}
+                className={`nav-link ${active === "contact" ? "active-link" : ""}`}
+                onClick={() => {
+                  smoothScroll("contact");
+                  closeDropdown();
+                }}
               >
                 Contact
               </span>

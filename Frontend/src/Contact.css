@@ -1,28 +1,31 @@
-/* SECTION WRAPPER */
+/* WRAPPER */
 .contact-wrapper {
-  padding: 120px 0;
+  padding: 90px 0; /* smaller */
   color: white;
-  text-align: center;
+  text-align: left; /* Title on left */
+  padding-left: 2rem;
 }
 
-/* TITLE */
+/* PINK TITLE */
 .contact-title {
-  font-size: 2.7rem;
-  font-weight: 700;
-  margin-bottom: 40px;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+  font-size: 2rem;
+  font-weight: 900;
+  color: #ff2d62;           /* pink like other sections */
+  margin-bottom: 35px;
+  text-shadow: 0 0 10px rgba(255, 45, 98, 0.5);
 }
 
-/* MAIN CARD */
+/* CARD (smaller height + more compact) */
 .contact-card {
   background: transparent;
   backdrop-filter: blur(10px);
-  border-radius: 25px;
-  padding: 50px 40px;
+  border-radius: 20px;
+  padding: 30px 30px;     /* smaller */
   border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.08);
   display: flex;
   align-items: center;
+  min-height: 350px;      /* reduced size */
 }
 
 /* FORM SIDE */
@@ -36,13 +39,13 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
 }
 
-/* INPUT FIELDS */
+/* INPUT */
 .input-group label {
   font-weight: 600;
-  margin-bottom: 6px;
+  margin-bottom: 5px;
   display: block;
 }
 
@@ -54,30 +57,23 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
   background: rgba(0, 0, 0, 0.45);
   color: white;
-  font-size: 1rem;
   outline: none;
   transition: 0.3s ease;
 }
 
 .input-group textarea {
-  height: 130px;
+  height: 120px;
   resize: none;
 }
 
-.input-group input:focus,
-.input-group textarea:focus {
-  border-color: #ff4f7b;
-  box-shadow: 0 0 12px #ff4f7b;
-}
-
-/* SUBMIT BUTTON */
+/* BUTTON */
 .contact-btn {
   background: #ff4f7b;
   color: white;
-  padding: 14px 25px;
+  padding: 13px 25px;
   border-radius: 10px;
   border: none;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 600;
   transition: 0.3s ease;
 }
@@ -85,50 +81,31 @@
 .contact-btn:hover {
   background: #ff2d62;
   transform: translateY(-3px);
-  box-shadow: 0 0 12px #ff4f7b;
+  box-shadow: 0 0 12px #ff2d62;
 }
 
 /* MODEL SIDE */
-.model-side {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* 3D MODEL BOX */
 .contact-model-box {
-  width: 100%;
-  height: 320px;
+  width: 90%;
+  height: 260px; /* smaller */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* MOBILE RESPONSIVE */
+/* RESPONSIVE */
 @media (max-width: 768px) {
+  .contact-wrapper {
+    padding-left: 1rem;
+  }
+
   .contact-card {
-    text-align: center;
     flex-direction: column;
+    padding: 25px;
   }
 
   .contact-model-box {
-    margin-top: 30px;
-    height: 300px;
+    margin-top: 25px;
+    height: 240px;
   }
 }
-
-
-.Toastify__toast {
-  border-radius: 10px;
-  border: 1px solid #ff2d62;
-}
-
-.Toastify__toast-theme--light {
-  background: rgba(0, 0, 0, 0.6) !important;
-  color: white !important;
-}
-
-.Toastify__progress-bar {
-  background: #ff2d62 !important;
-}
-

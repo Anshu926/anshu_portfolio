@@ -7,41 +7,30 @@
   border: 1px solid rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(6px);
   max-width: 650px;
-  margin: 20px auto; /* center navbar */
-  z-index: 10;
+  margin: 20px auto;
   position: sticky;
   top: 2rem;
   z-index: 100;
   box-shadow: 0 0 20px rgba(255, 45, 98, 0.7);
-} 
+}
 
-/* White links */
+/* NAV LINKS */
 .custom-navbar .nav-link {
   color: white !important;
   font-size: 1rem;
   font-weight: 500;
   transition: 0.5s ease;
-    cursor: pointer !important;
+  cursor: pointer !important;
 }
 
 .custom-navbar .nav-link:hover {
   color: #ff4f7b !important;
   text-shadow: 0 0 8px #ff2d62;
-    cursor: pointer !important;
-      user-select: none !important;  /* prevents text selection */
-  -webkit-user-select: none !important;
+  cursor: pointer !important;
+  user-select: none !important;
 }
 
-/* Make hamburger white */
-.navbar-toggler {
-  border-color: #ff4f7b;
-}
-
-.navbar-toggler-icon {
-  filter: invert(1); /* make icon white */
-}
-
-/* Mobile dropdown */
+/* Mobile dropdown styling */
 @media (max-width: 991px) {
   #navbarCentered {
     background: rgba(0, 0, 0, 0.55);
@@ -51,7 +40,7 @@
   }
 }
 
-
+/* Extra link styling */
 .nav-link {
   cursor: pointer !important;
   user-select: none !important;
@@ -65,10 +54,33 @@
   font-weight: 600;
 }
 
-/* Push hamburger to right on mobile */
-@media (max-width: 991px) {
-  .navbar-toggler {
-    margin-left: auto; /* pushes it to right */
+/* Hamburger white */
+.navbar-toggler {
+  border-color: #ff4f7b !important;
+}
+
+.navbar-toggler-icon {
+  filter: invert(1); /* makes icon white */
+}
+
+/* Mobile: center Portfolio title */
+.portfolio-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 0 8px #ff2d62;
+}
+
+/* Hide Portfolio on desktop */
+@media (min-width: 992px) {
+  .portfolio-title {
+    display: none !important;
   }
 }
 
+/* Push hamburger to right on mobile */
+@media (max-width: 991px) {
+  .navbar-toggler {
+    margin-left: auto;
+  }
+}

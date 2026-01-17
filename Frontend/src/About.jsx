@@ -1,5 +1,7 @@
 import "./About.css";
 import ThreeModel from "./ThreeModel";
+import resumePDF from "./assets/resume.pdf";
+
 
 function About() {
   return (
@@ -64,13 +66,9 @@ function About() {
 
           <button
             className="hire-btn mt-4"
-            onClick={() => {
-              document.getElementById("contact").scrollIntoView({
-                behavior: "smooth",
-              });
-            }}
+            onClick={() => window.open(resumePDF, "_blank")}
           >
-            Available for Work
+            Get Resume
           </button>
         </div>
 

@@ -1,5 +1,5 @@
+/* WRAPPER */
 .skills-wrapper {
-  margin-top: -1rem;
   text-align: center;
   color: white;
 }
@@ -8,31 +8,61 @@
   font-size: 2.2rem;
   font-weight: 700;
   text-shadow: 0 0 8px rgba(255,255,255,0.4);
-  margin-bottom: 30px;
+  margin-bottom: 5rem;
+    color: #ff2d62;
 }
 
-/* Skill card */
+/* Skill Card (GLASS + GLOSSY) */
 .skill-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   min-width: 130px;
   margin: 0 20px;
-  padding: 15px 20px;
+  padding: 18px 22px;
+
   background: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(6px);
-  transition: 0.3s ease;
+  border: 1px solid #222;
+
+  backdrop-filter: blur(8px);
+
+  position: relative;
+  overflow: hidden;
+  transition: 0.35s ease;
 }
 
+/* Hover Glow + Lift */
 .skill-card:hover {
+  border-color: #ff2d62;
+  box-shadow: 0 0 18px rgba(255, 45, 98, 0.45);
   transform: scale(0.9);
-  border-color: #ff4f7b;
-  box-shadow: 0 0 10px #ff4f7b;
 }
 
-/* SVG icons */
+/* Shine Effect */
+.skill-card::after {
+  content: "";
+  position: absolute;
+  top: -120%;
+  left: 0;
+  width: 100%;
+  height: 120%;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.12),
+    transparent
+  );
+
+  transition: 0.6s ease;
+}
+
+.skill-card:hover::after {
+  top: 0;
+}
+
+/* SVG ICON */
 .skill-svg {
   width: 48px;
   height: 48px;
@@ -40,6 +70,7 @@
   filter: drop-shadow(0 0 5px #ff4f7b);
 }
 
+/* TEXT */
 .skill-card span {
   font-size: 1rem;
   font-weight: 500;

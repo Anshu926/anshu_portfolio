@@ -11,7 +11,7 @@ function Projects() {
       desc: "Dynamic food ordering platform with menus, ordering flow, and responsive UI.",
       live: "https://meal-matka-3.onrender.com/home",
       code: "https://github.com/Anshu926/meal_matka",
-    }, 
+    },
     {
       img: proj2,
       title: "Task Management Application",
@@ -31,11 +31,13 @@ function Projects() {
   return (
     <div className="projects-wrapper container">
       <h1 className="projects-title">Projects</h1>
-
+      <br />
       <div className="projects-grid">
         {projectData.map((proj, index) => (
           <div className="project-card" key={index}>
-            
+
+            <div className="gloss"></div>
+
             <img src={proj.img} className="project-img" alt="" />
 
             <div className="project-info">
@@ -44,10 +46,10 @@ function Projects() {
 
               <div className="project-buttons">
                 <a href={proj.live} target="_blank" className="project-btn live-btn">
-                  Live Demo 
+                  Live Demo
                 </a>
                 <a href={proj.code} target="_blank" className="project-btn code-btn">
-                  View Code 
+                  View Code
                 </a>
               </div>
 

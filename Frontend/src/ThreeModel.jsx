@@ -61,25 +61,47 @@ export default function ThreeModel() {
     /* 🔽 DRASTIC MODEL OPTIMIZATION */
     let model = null;
     const loader = new GLTFLoader();
-    loader.load(
-      "/kid.glb",
-      (gltf) => {
-        model = gltf.scene;
+loader.load(
+  "/kid.glb",
+  (gltf) => {
+    model = gltf.scene;
 
-        // reduce quality of model shadows/material
-        model.traverse((child) => {
-          if (child.isMesh) {
-            child.castShadow = false;
-            child.receiveShadow = false;
-            child.material.flatShading = true; // ⚡ big FPS boost
-          }
-        });
-
-        model.scale.set(1.6, 1.6, 1.6);
-        model.position.set(0, 0.1, 0);
-        scene.add(model);
+    // Optimize model for performance
+    model.traverse((child) => {
+      if (child.isMesh) {
+        child.castShadow = false;
+        child.receiveShadow = false;
+        child.material.flatShading = true;
       }
-    );
+    });
+
+    // Responsive Scaling
+    const setModelScale = () => {
+      if (window.innerWidth < 600) {
+        // small mobile
+        model.scale.set(0.8, 0.8, 0.8);
+      } else if (window.innerWidth < 1024) {
+        // tablet
+        model.scale.set(1.2, 1.2, 1.2);
+      } else {
+        // desktop
+        model.scale.set(1.6, 1.6, 1.6);
+      }
+    };
+
+    // Initial scale
+    setModelScale();
+
+    // Update scale on screen resize
+    window.addEventListener("resize", setModelScale);
+
+    // Position model
+    model.position.set(0, 0.1, 0);
+
+    scene.add(model);
+  }
+);
+
 
     /* 👀 OBSERVER — Freeze animation when not visible */
     const observer = new IntersectionObserver(

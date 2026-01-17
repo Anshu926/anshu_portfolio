@@ -31,9 +31,8 @@ export default function Contact() {
       toast.success("Message sent successfully", {
         position: "top-center",
         autoClose: 2000,
-        closeButton: false, // ❌ remove X button
-        hideProgressBar: false,
-        progressStyle: { background: "#ff2d62" }, // 🔥 pink progress bar
+        closeButton: false,
+        progressStyle: { background: "#ff2d62" },
         style: {
           background: "rgba(0,0,0,0.6)",
           backdropFilter: "blur(8px)",
@@ -65,10 +64,9 @@ export default function Contact() {
     <div className="contact-wrapper container" id="contact">
       <ToastContainer />
 
-      <h2 className="contact-title">Get in Touch</h2>
+      <h2 className="contact-title">Contact</h2>
 
       <div className="contact-card row">
-        {/* LEFT - FORM */}
         <div className="col-md-6 form-side">
           <form onSubmit={handleSubmit} className="contact-form">
             <div className="input-group">
@@ -112,7 +110,6 @@ export default function Contact() {
           </form>
         </div>
 
-        {/* RIGHT - 3D MODEL */}
         <div className="col-md-6 model-side d-flex justify-content-center align-items-center">
           <div className="contact-model-box">
             <ContactModel />
