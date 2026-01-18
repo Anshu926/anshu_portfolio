@@ -6,7 +6,7 @@ function Education() {
       title: "B.Tech - Information Technology",
       year: "2023 - 2027",
       school: "St. Vincent Pallotti College , Nagpur",
-      grade: "CGPA : 9.00",
+      grade: "CGPA : 8+",
     },
     {
       title: "Senior Secondary (XII) - Science",

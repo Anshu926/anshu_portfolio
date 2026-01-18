@@ -59,7 +59,7 @@ function Navbar() {
       <div className="container-fluid d-flex align-items-center">
         {/* Mobile Center Title */}
         <div className="navbar-brand mx-auto d-lg-none portfolio-title">
-          Portfolio Website
+          Anshu Bongade
         </div>
 
         {/* Hamburger */}
