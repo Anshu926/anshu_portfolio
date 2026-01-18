@@ -13,57 +13,63 @@ export default function ContactModel() {
 
     /* ------------------ GLOBAL PERFORMANCE SETTINGS ------------------ */
     THREE.ColorManagement.enabled = false;
-    const pixelRatio = Math.min(window.devicePixelRatio, 1.0); // BEST FOR FPS
+
+    const pixelRatio =
+      window.innerWidth < 600 ? 0.7 : Math.min(window.devicePixelRatio, 1);
 
     /* 🎬 SCENE */
     const scene = new THREE.Scene();
     scene.background = null;
 
+    /* Slight fog = smoother feel */
+    scene.fog = new THREE.Fog(0x000000, 6, 15);
+
     /* 🎥 CAMERA */
     const camera = new THREE.PerspectiveCamera(
-      22, // slightly lower FOV = LESS RENDER COST
+      22,
       container.clientWidth / container.clientHeight,
       0.1,
       40
     );
     camera.position.set(3.5, 2, 5);
 
-    /* 🔆 RENDERER — SUPER OPTIMIZED */
+    /* 🔆 RENDERER — MAX FPS MODE */
     const renderer = new THREE.WebGLRenderer({
-      antialias: false, // ❌ REMOVE heavy smoothing
+      antialias: false,
       alpha: true,
-      powerPreference: "low-power", // ⚡ REDUCE GPU LOAD
+      powerPreference: "low-power",
+      precision: "lowp", // 🔥 LOW PRECISION MODE
     });
 
-    renderer.setPixelRatio(pixelRatio); // important
+    renderer.setPixelRatio(pixelRatio);
     renderer.setSize(container.clientWidth, container.clientHeight);
     renderer.shadowMap.enabled = false;
-    renderer.outputEncoding = THREE.LinearEncoding; // faster encoding
+
+    /* Disable tone mapping for speed */
+    renderer.toneMapping = THREE.NoToneMapping;
+
+    renderer.outputEncoding = THREE.LinearEncoding;
     container.appendChild(renderer.domElement);
 
-    /* 💡 LIGHTS — LIGHTWEIGHT */
-    scene.add(new THREE.AmbientLight(0xffffff, 1.2));
+    /* 💡 LIGHTS — soft & clean (best for performance) */
+    const ambient = new THREE.AmbientLight(0xffffff, 2);
+    scene.add(ambient);
 
-    const dirLight = new THREE.DirectionalLight(0xffffff, 1.1);
-    dirLight.position.set(3, 3, 3);
+    const dirLight = new THREE.DirectionalLight(0xffffff, 0.4);
+    dirLight.position.set(2, 2, 2);
     dirLight.castShadow = false;
     scene.add(dirLight);
 
-    /* 🌀 CONTROLS — ULTRA OPTIMIZED */
+    /* 🌀 CONTROLS */
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableZoom = false;
     controls.enablePan = false;
-    controls.enableDamping = false; // ❌ remove heavy motion smoothing
+    controls.enableDamping = false;
 
     controls.minPolarAngle = Math.PI / 2;
     controls.maxPolarAngle = Math.PI / 2;
 
-    controls.autoRotate = false;
-    controls.autoRotateSpeed = 2.2;
-
-    
-
-    /* 🎨 LOAD GLB MODEL (Optimized) */
+    /* 🎨 LOAD GLB */
     let model = null;
     const loader = new GLTFLoader();
     loader.load(
@@ -71,27 +77,30 @@ export default function ContactModel() {
       (gltf) => {
         model = gltf.scene;
 
-        // Optimize model
+        /* Mesh Optimization */
         model.traverse((child) => {
           if (child.isMesh) {
             child.castShadow = false;
             child.receiveShadow = false;
+
+            /* Faster material setup */
             child.material.flatShading = true;
+            child.material.precision = "lowp"; // 🔥 low precision material
+            child.material.needsUpdate = true;
           }
         });
 
-        // Ensure model is straight (fix tilt issue)
-        // Ensure model is straight (facing camera)
+        /* Fix angle */
         model.rotation.set(0, -Math.PI / 3, 0);
 
-        // Responsive scale function
+        /* Responsive scaling */
         const setModelScale = () => {
           if (window.innerWidth < 600) {
-            model.scale.set(1.4, 1.4, 1.4);
+            model.scale.set(1.2, 1.2, 1.2);
           } else if (window.innerWidth < 1024) {
             model.scale.set(2.0, 2.0, 2.0);
           } else {
-            model.scale.set(2.4, 2.4, 2.4);
+            model.scale.set(2.3, 2.3, 2.3);
           }
         };
 
@@ -103,36 +112,34 @@ export default function ContactModel() {
         scene.add(model);
       },
       undefined,
-      (err) => console.error("LOAD ERROR", err)
+      (err) => console.error("MODEL LOAD ERROR", err)
     );
 
-    /* 👀 STOP RENDERING WHEN NOT IN VIEW */
+    /* 👀 STOP RENDER WHEN NOT IN VIEW */
     const observer = new IntersectionObserver(
       (entries) => {
         isVisibleRef.current = entries[0].isIntersecting;
       },
       { threshold: 0.1 }
     );
-
     observer.observe(container);
 
-    /* 🔄 SUPER FAST ANIMATION LOOP */
-    function animate() {
+    /* 🔄 ANIMATION LOOP */
+    const animate = () => {
       if (isVisibleRef.current) {
         controls.update();
         renderer.render(scene, camera);
       }
       requestAnimationFrame(animate);
-    }
+    };
     animate();
 
-    /* 📱 AUTO RESIZE */
+    /* 📱 RESIZE HANDLER */
     const handleResize = () => {
       camera.aspect = container.clientWidth / container.clientHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(container.clientWidth, container.clientHeight);
     };
-
     window.addEventListener("resize", handleResize);
 
     /* 🧹 CLEANUP */

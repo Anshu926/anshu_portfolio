@@ -75,3 +75,72 @@
   font-size: 1rem;
   font-weight: 500;
 }
+
+/* ============================= */
+/*   MOBILE RESPONSIVE FIXES     */
+/* ============================= */
+
+@media (max-width: 768px) {
+  .skills-title {
+    font-size: 1.8rem;
+    margin-bottom: 3rem;
+  }
+
+  .skill-card {
+    min-width: 110px;       /* smaller cards for mobile */
+    margin: 0 14px;         /* reduce wide spacing */
+    padding: 14px 18px;     /* decrease card padding */
+  }
+
+  .skill-svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .skill-card span {
+    font-size: 0.9rem;
+  }
+
+  /* Better touch scrolling */
+  .marquee-container, .skills-wrapper {
+    overflow-x: hidden !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .skill-card {
+    min-width: 95px;        /* extra small devices */
+    margin: 0 10px;
+    padding: 12px 16px;
+  }
+
+  .skill-svg {
+    width: 35px;
+    height: 35px;
+  }
+
+  .skill-card span {
+    font-size: 0.85rem;
+  }
+}
+/* DRAG SCROLL BOX */
+.drag-scroll-container {
+  width: 100%;
+  overflow-x: auto;   /* allow scroll */
+  cursor: grab;
+  padding: 10px 0;
+}
+
+.drag-scroll-container.active-drag {
+  cursor: grabbing;
+}
+
+/* Remove scrollbars on mobile */
+.drag-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.drag-scroll-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

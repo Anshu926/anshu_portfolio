@@ -1,0 +1,64 @@
+/* Fullscreen Center Layout */
+.universal-container {
+  height: 100vh;
+  width: 100%;
+  background: #0d0d0d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Card */
+.universal-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 40px 60px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 45, 98, 0.4);
+  text-align: center;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 25px rgba(255, 45, 98, 0.2);
+  max-width: 450px;
+  width: 100%;
+}
+
+/* 404 Code */
+.universal-code {
+  font-size: 6rem;
+  color: #ff2d62;
+  margin: 0;
+  text-shadow: 0 0 25px rgba(255, 45, 98, 0.6);
+}
+
+/* Title */
+.universal-title {
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 10px;
+}
+
+/* Message */
+.universal-message {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+  margin-bottom: 30px;
+  line-height: 1.5rem;
+}
+
+/* Button */
+.universal-home-btn {
+  background: #ff2d62;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 0 15px rgba(255, 45, 98, 0.6);
+  transition: 0.3s ease;
+  display: inline-block;
+}
+
+.universal-home-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 25px rgba(255, 45, 98, 1);
+}

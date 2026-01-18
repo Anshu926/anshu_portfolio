@@ -84,3 +84,31 @@
     margin-left: auto;
   }
 }
+
+
+
+/* Correct section scroll offset for navbar */
+section {
+  scroll-margin-top: 50px !important; /* for PC */
+}
+
+/* Medium screens */
+@media (max-width: 768px) {
+  section {
+    scroll-margin-top: 400px !important;
+  }
+}
+
+/* Very small / short mobile screens */
+@media (max-width: 480px) {
+  section {
+    scroll-margin-top: 450px !important;
+  }
+}
+
+/* VERY short devices like iPhone SE / small android */
+@media (max-height: 650px) {
+  section {
+    scroll-margin-top: 500px !important;
+  }
+}

@@ -6,22 +6,14 @@ function Navbar() {
 
   // Smooth scroll handler
   const smoothScroll = (sectionId) => {
-    const section = document.getElementById(sectionId);
+  const section = document.getElementById(sectionId);
 
-    if (!section) return;
+  if (!section) return;
 
-    section.scrollIntoView({ behavior: "smooth", block: "start" });
+  // Smooth scroll WITHOUT manual offset
+  section.scrollIntoView({ behavior: "smooth", block: "start" });
+};
 
-    setTimeout(() => {
-      const navbar = document.querySelector(".custom-navbar");
-      const navbarHeight = navbar ? navbar.offsetHeight : 100;
-
-      window.scrollBy({
-        top: -navbarHeight - 20,
-        behavior: "smooth",
-      });
-    }, 300);
-  };
 
   // CLOSE dropdown after click (mobile)
   const closeDropdown = () => {

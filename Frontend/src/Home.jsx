@@ -1,5 +1,4 @@
 import "./Home.css";
-
 import { motion } from "framer-motion";
 
 import Navbar from "./Navbar.jsx";
@@ -17,12 +16,22 @@ const sectionVariant = {
   show: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: 1.1,
-      ease: "easeOut"
-    }
+    transition: { duration: 1.1, ease: "easeOut" }
   }
 };
+
+// Reusable separator
+function Separator() {
+  return (
+    <div className="section-separator">
+      <span className="dot">•</span>
+      <span className="dot">•</span>
+      <div className="line"></div>
+      <span className="dot">•</span>
+      <span className="dot">•</span>
+    </div>
+  );
+}
 
 function Home() {
   return (
@@ -35,13 +44,13 @@ function Home() {
         <div className="bubbles"></div>
       </div>
 
-      {/* ⭐ PAGE CONTENT */}
+      {/* ⭐ MAIN CONTENT */}
       <div className="page-content">
 
-        {/* 🔹 NAVBAR */}
+        {/* NAVBAR */}
         <Navbar />
 
-        {/* 🔹 ABOUT SECTION */}
+        {/* ABOUT */}
         <motion.section
           id="about"
           variants={sectionVariant}
@@ -52,36 +61,9 @@ function Home() {
           <About />
         </motion.section>
 
-        {/* 🔹 SEPARATOR */}
-        <div className="section-separator">
-          <span className="dot">•</span>
-          <span className="dot">•</span>
-          <div className="line"></div>
-          <span className="dot">•</span>
-          <span className="dot">•</span>
-        </div>
+        <Separator />
 
-        {/* 🔹 SKILLS SECTION */}
-        <motion.section
-          id="skills"
-          variants={sectionVariant}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          <Skills />
-        </motion.section>
-
-        {/* 🔹 SEPARATOR */}
-        <div className="section-separator">
-          <span className="dot">•</span>
-          <span className="dot">•</span>
-          <div className="line"></div>
-          <span className="dot">•</span>
-          <span className="dot">•</span>
-        </div>
-
-        {/* 🔹 EDUCATION SECTION */}
+        {/* EDUCATION */}
         <motion.section
           id="education"
           variants={sectionVariant}
@@ -92,16 +74,9 @@ function Home() {
           <Education />
         </motion.section>
 
-        {/* 🔹 SEPARATOR */}
-        <div className="section-separator">
-          <span className="dot">•</span>
-          <span className="dot">•</span>
-          <div className="line"></div>
-          <span className="dot">•</span>
-          <span className="dot">•</span>
-        </div>
+        <Separator />
 
-        {/* 🔹 Experience SECTION */}
+        {/* EXPERIENCE */}
         <motion.section
           id="experience"
           variants={sectionVariant}
@@ -112,16 +87,22 @@ function Home() {
           <Experience />
         </motion.section>
 
-        {/* 🔹 SEPARATOR */}
-        <div className="section-separator">
-          <span className="dot">•</span>
-          <span className="dot">•</span>
-          <div className="line"></div>
-          <span className="dot">•</span>
-          <span className="dot">•</span>
-        </div>
+        <Separator />
 
-        {/* 🔹 PROJECTS SECTION */}
+        {/* SKILLS */}
+        <motion.section
+          id="skills"
+          variants={sectionVariant}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <Skills />
+        </motion.section>
+
+        <Separator />
+
+        {/* PROJECTS */}
         <motion.section
           id="projects"
           variants={sectionVariant}
@@ -132,16 +113,9 @@ function Home() {
           <Projects />
         </motion.section>
 
-        {/* 🔹 SEPARATOR */}
-        <div className="section-separator">
-          <span className="dot">•</span>
-          <span className="dot">•</span>
-          <div className="line"></div>
-          <span className="dot">•</span>
-          <span className="dot">•</span>
-        </div>
+        <Separator />
 
-        {/* 🔹 CONTACT SECTION */}
+        {/* CONTACT */}
         <motion.section
           id="contact"
           variants={sectionVariant}
@@ -152,7 +126,7 @@ function Home() {
           <Contact />
         </motion.section>
 
-        {/* 🔹 FOOTER */}
+        {/* FOOTER */}
         <Footer />
 
       </div>
@@ -161,4 +135,3 @@ function Home() {
 }
 
 export default Home;
- 
