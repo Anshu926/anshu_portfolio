@@ -1,23 +1,23 @@
 import "./Projects.css";
 import proj1 from "./assets/food.webp";
-import proj2 from "./assets/task.avif";
+import proj2 from "./assets/wanderlust.jpg";
 import proj3 from "./assets/ecome.avif";
 
 function Projects() {
   const projectData = [
     {
       img: proj1,
-      title: "Online Food Ordering System",
+      title: "Food Ordering System",
       desc: "Dynamic food ordering platform with menus, ordering flow, and responsive UI.",
       live: "https://meal-matka-3.onrender.com/home",
       code: "https://github.com/Anshu926/meal_matka",
     },
     {
       img: proj2,
-      title: "Task Management Application",
-      desc: "Full-stack productivity app for creating, updating, and managing tasks.",
-      live: "https://anshu926-task-management-software.onrender.com/home",
-      code: "https://github.com/Anshu926/Task_Management_Software",
+      title: "Destination Listing Platform",
+      desc: "A lightweight travel listing system for viewing and managing accommodation details.",
+      live: "https://wanderlust-1-jeji.onrender.com/listings",
+      code: "https://github.com/Anshu926/wanderlust",
     },
     {
       img: proj3,
