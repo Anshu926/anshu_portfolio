@@ -11,14 +11,14 @@ function Experience() {
     {
       company: "Wire Fusion Metrics (Remote)",
       year: "15 Sep 2025 – 14 Oct 2025",
-      role: "Trainee — Full Stack Developer",
+      role: "Trainee — Full Stack Developer Intern",
       duration: "1 Month",
     },
     {
-      company: "Cognifyz Technologies (Remote)",
-      year: "31 Aug 2024",
-      role: "Full Stack Development Intern",
-      duration: "1 Month",
+      company: "IT DAKSH - Nagpur (Remote + Onsite)",
+      year: "22 January 2026 – 22 July 2026",
+      role: "Advanced Full-Stack Development Intern",
+      duration: "6 Month",
     }
   ];
 
