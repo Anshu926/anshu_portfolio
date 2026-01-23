@@ -91,7 +91,7 @@ export default function ContactModel() {
         });
 
         /* Fix angle */
-        model.rotation.set(0, -Math.PI / 3, 0);
+        model.rotation.set(0, -Math.PI / 5, 0);
 
         /* Responsive scaling */
         const setModelScale = () => {

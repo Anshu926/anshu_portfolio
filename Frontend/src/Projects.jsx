@@ -23,8 +23,8 @@ function Projects() {
       img: proj3,
       title: "E-Commerce Platform",
       desc: "Scalable e-commerce site with product catalog, cart, and secure checkout.",
-      live: "https://e-com-e.onrender.com/home",
-      code: "https://github.com/Anshu926/E_com_E",
+      live: "https://ab-fashion.onrender.com/home",
+      code: "https://github.com/Anshu926/AB_FASHION",
     }
   ];
 
