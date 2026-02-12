@@ -1,9 +1,11 @@
 import "./About.css";
 import ThreeModel from "./ThreeModel";
 import resumePDF from "./assets/resume.pdf";
+import Typewriter from "./Typewriter";
 
 
-function About() {
+
+function About() { 
   return (
     <div className="about-wrapper container" id="about">
       <div className="row align-items-center">
@@ -12,8 +14,7 @@ function About() {
           <h2 className="hello-text">Hello,</h2>
           <h1 className="hero-name">I'm Anshu Bongade.</h1>
 
-          {/* Static Role */}
-          <h3 className="hero-job">Web & Mobile Application Developer</h3>
+          <Typewriter />  
 
           <p className="hero-details mt-3">
             Motivated IT student skilled in full-stack web and mobile app

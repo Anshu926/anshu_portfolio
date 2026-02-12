@@ -134,3 +134,20 @@
     font-size: 1rem;
   }
 }
+
+
+
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.2em;
+  background: #ff4f7b;
+  margin-left: 6px;
+  animation: blink 1s infinite ease-in-out;
+  vertical-align: bottom;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
