@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
 const words = [
-  "Full Stack Development.",
-  "Mobile App Development.",
+  "Full Stack Web Development.",
+  "Mobile Application Development.",
   "AI / ML Development."
 ];
 
