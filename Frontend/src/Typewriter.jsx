@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
 const words = [
-  "Full Stack Developer.",
-  "Mobile App Developer.",
+  "Full Stack Web-Developer.",
+  "Mobile App-Developer.",
   "AI / ML Enthusiast.",
-  "Prompt Engineering Enthusiast.",
+  "Prompt Engineering Explorer.",
 ];
 
 function Typewriter() {
