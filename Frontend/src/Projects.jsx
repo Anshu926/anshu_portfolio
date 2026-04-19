@@ -33,7 +33,7 @@ function Projects() {
       img: proj4,
       title: "Customer Behavior Analytics Platform",
       desc: "AI-powered customer analytics platform to predict satisfaction, identify customer segments, and deliver insights through an interactive dashboard.",
-      live: "https://chatgpt.com/backend-api/estuary/content?id=file_0000000008607208b1ff7964490afb94&ts=493496&p=fs&cid=1&sig=5494ae6293c7c5e7115a4384581a93f56523828a4ce4b06641b2d05bdd698001&v=0",
+      live: "https://customer-analytics-platform-xoovips4gkx6tcfrzh6mby.streamlit.app/",
       code: "https://github.com/Anshu926/Customer-Analytics-Platform",
     }
   ];
