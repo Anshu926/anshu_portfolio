@@ -44,7 +44,8 @@ export default function Contact() {
 
       setForm({ name: "", email: "", message: "" });
     } catch (error) {
-      toast.error("Failed to send message ❌", {
+        console.error("Firebase Error:", error);
+      toast.error("Failed to send message", {
         position: "top-center",
         autoClose: 2000,
         closeButton: false,
@@ -118,5 +119,5 @@ export default function Contact() {
       </div>
     </div>
   );
-}
+} 
  
