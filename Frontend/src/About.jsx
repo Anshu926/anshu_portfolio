@@ -3,9 +3,7 @@ import ThreeModel from "./ThreeModel";
 import resumePDF from "./assets/anshu_bongade_resume_01.pdf";
 import Typewriter from "./Typewriter";
 
-
-
-function About() { 
+function About() {
   return (
     <div className="about-wrapper container" id="about">
       <div className="row align-items-center">
@@ -14,7 +12,7 @@ function About() {
           <h2 className="hello-text">Hello,</h2>
           <h1 className="hero-name">I'm Anshu Bongade.</h1>
 
-          <Typewriter />  
+          <Typewriter />
 
           <p className="hero-details mt-3">
             Motivated IT student skilled in full-stack web and mobile app
@@ -65,12 +63,14 @@ function About() {
             </a>
           </div>
 
-          <button
-            className="hire-btn mt-4"
-            onClick={() => window.open(resumePDF, "_blank")}
+          <a
+            href={resumePDF}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hire-btn mt-4 d-inline-block text-decoration-none"
           >
             Get Resume
-          </button>
+          </a>
         </div>
 
         {/* RIGHT SIDE — 3D MODEL */}
