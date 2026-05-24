@@ -55,7 +55,7 @@ function About() {
             </a>
 
             <a
-              href="https://t.me/anshu_bongade"
+              href="https://t.me/anshu_bongade_2005"
               target="_blank"
               className="icon telegram"
             >
