@@ -1,8 +1,9 @@
 import "./Projects.css";
-import proj1 from "./assets/food.webp";
-import proj2 from "./assets/wanderlust.jpg";
-import proj3 from "./assets/ecome.avif";
-import proj4 from "./assets/customer-analytics.png";
+import proj1 from "./assets/food_ordering.png";
+import proj2 from "./assets/wanderlust.png";
+import proj3 from "./assets/e_eommerce.png";
+import proj4 from "./assets/customer_analysis.png";
+import proj5 from "./assets/gesture-calculator.png";
 
 function Projects() {
   const projectData = [
@@ -35,7 +36,15 @@ function Projects() {
       desc: "AI-powered customer analytics platform to predict satisfaction, identify customer segments, and deliver insights through an interactive dashboard.",
       live: "https://customer-analytics-platform-xoovips4gkx6tcfrzh6mby.streamlit.app/",
       code: "https://github.com/Anshu926/Customer-Analytics-Platform",
+    },
+    {
+      img: proj5,
+      title: "Real-Time Virtual Gesture Calculator",
+      desc: "AI-powered virtual gesture calculator for real-time interaction and control.",
+      live: "https://github.com/Anshu926/Real-Time-Virtual-Gesture-Calculator",
+      code: "https://github.com/Anshu926/Real-Time-Virtual-Gesture-Calculator",
     }
+
   ];
 
   return (

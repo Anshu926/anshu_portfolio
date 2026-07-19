@@ -17,7 +17,7 @@ function Experience() {
     {
       company: "IT DAKSH - Nagpur (Remote + Onsite)",
       year: "22 January 2026 – 22 July 2026",
-      role: "Advanced Full-Stack Development Intern",
+      role: "Advanced Full-Stack Developmer & AI/ML Intern",
       duration: "6 Month",
     }
   ];

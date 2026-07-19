@@ -1,6 +1,6 @@
 import "./About.css";
 import ThreeModel from "./ThreeModel";
-import resumePDF from "./assets/anshu_bongade_resume_01.pdf";
+import resumePDF from "./assets/anshu_bongade_resume.pdf";
 import Typewriter from "./Typewriter";
 
 function About() {

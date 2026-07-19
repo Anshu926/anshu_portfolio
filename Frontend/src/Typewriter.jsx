@@ -2,9 +2,7 @@ import { useEffect, useState } from "react";
 
 const words = [
   "Full Stack Web-Developer.",
-  "Mobile App-Developer.",
   "AI / ML Enthusiast.",
-  "Prompt Engineering Explorer.",
 ];
 
 function Typewriter() {
