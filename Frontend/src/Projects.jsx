@@ -27,8 +27,8 @@ function Projects() {
       img: proj3,
       title: "E-Commerce Platform",
       desc: "Scalable e-commerce site with product catalog, cart, and secure checkout.",
-      live: "https://ab-fashion.onrender.com/home",
-      code: "https://github.com/Anshu926/AB_FASHION",
+      live: "https://project1-eight-gold.vercel.app/",
+      code: "https://github.com/Anshu926/SHOPPING-WEBSITE",
     },
     {
       img: proj4,
