@@ -4,53 +4,83 @@ import "./Navbar.css";
 function Navbar() {
   const [active, setActive] = useState("about");
 
-  // Smooth scroll handler
-  const smoothScroll = (sectionId) => {
-  const section = document.getElementById(sectionId);
-
-  if (!section) return;
-
-  // Smooth scroll WITHOUT manual offset
-  section.scrollIntoView({ behavior: "smooth", block: "start" });
-};
-
-
-  // CLOSE dropdown after click (mobile)
+  // CLOSE dropdown cleanly on mobile without layout shift delay
   const closeDropdown = () => {
     const navbar = document.getElementById("navbarCentered");
+    const toggler = document.querySelector(".navbar-toggler");
+
     if (navbar && navbar.classList.contains("show")) {
-      navbar.classList.remove("show");
+      navbar.classList.remove("show", "collapsing");
+      navbar.style.height = "";
+      if (toggler) {
+        toggler.setAttribute("aria-expanded", "false");
+        toggler.classList.add("collapsed");
+      }
     }
   };
 
-  // Scroll Spy Logic
+  // Smooth scroll handler
+  const smoothScroll = (sectionId) => {
+    setActive(sectionId);
+    closeDropdown();
+
+    // requestAnimationFrame ensures browser reflows to collapsed navbar height before initiating scroll
+    requestAnimationFrame(() => {
+      const section = document.getElementById(sectionId);
+      if (!section) return;
+
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  };
+
+  // ─────────────────────────────────────────────────
+  // SCROLL SPY — uses getBoundingClientRect()
+  //
+  // WHY the old offsetTop approach failed:
+  //   • sec.offsetTop is relative to the nearest positioned
+  //     ancestor (.page-content, position:relative), NOT the
+  //     document top — different coordinate system to window.scrollY.
+  //   • scroll-margin-top:90px causes scrollIntoView to stop
+  //     with the section top at 90px from viewport, making the
+  //     old formula consistently miss the active section.
+  //
+  // getBoundingClientRect() is always viewport-relative and
+  // requires no manual offset calculations.
+  // ─────────────────────────────────────────────────
   useEffect(() => {
     const sections = [
       "about",
       "education",
       "experience",
+      "skills",
       "projects",
       "contact",
     ];
 
     const handleScroll = () => {
       const navbar = document.querySelector(".custom-navbar");
-      const navbarHeight = navbar ? navbar.offsetHeight : 100;
-      const scrollPos = window.scrollY + navbarHeight + 20;
+      const navbarHeight = navbar ? navbar.offsetHeight : 90;
+      // Threshold: how far from viewport top counts as "in view"
+      const threshold = navbarHeight + 50;
 
-      for (let id of sections) {
+      // Walk sections top-to-bottom; the LAST one whose top
+      // has crossed the threshold is the current active section.
+      let current = "about";
+      for (const id of sections) {
         const sec = document.getElementById(id);
-        if (
-          sec &&
-          scrollPos >= sec.offsetTop &&
-          scrollPos < sec.offsetTop + sec.offsetHeight
-        ) {
-          setActive(id);
+        if (!sec) continue;
+        const { top } = sec.getBoundingClientRect();
+        if (top <= threshold) {
+          current = id;
         }
       }
+      setActive(current);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    // Run once immediately on mount to set correct initial state
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -111,6 +141,18 @@ function Navbar() {
                 }}
               >
                 Experience
+              </span>
+            </li>
+
+            <li className="nav-item">
+              <span
+                className={`nav-link ${active === "skills" ? "active-link" : ""}`}
+                onClick={() => {
+                  smoothScroll("skills");
+                  closeDropdown();
+                }}
+              >
+                Skills
               </span>
             </li>
 

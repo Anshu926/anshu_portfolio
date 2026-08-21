@@ -17,25 +17,24 @@ function Experience() {
     {
       company: "IT DAKSH - Nagpur (Remote + Onsite)",
       year: "22 January 2026 – 22 July 2026",
-      role: "Advanced Full-Stack Developmer & AI/ML Intern",
-      duration: "6 Month",
+      role: "Advanced Full-Stack Developer & AI/ML Intern",
+      duration: "6 Months",
     }
   ];
 
   return (
     <div className="exp-wrapper container">
 
-      <h1 className="section-heading">Experience</h1>
-      <br /><br />
+      <h1 className="exp-section-heading">Experience</h1>
 
       {/* Auto-grid for ANY number of experiences */}
       <div className="exp-two-col">
         {experienceData.map((exp, index) => (
           <div className="exp-box" key={index}>
-            <h3 className="title">{exp.company}</h3>
-            <p className="year">{exp.year}</p>
-            <p className="role">{exp.role}</p>
-            <p className="duration">{exp.duration}</p>
+            <h3 className="exp-company">{exp.company}</h3>
+            <p className="exp-year">{exp.year}</p>
+            <p className="exp-role">{exp.role}</p>
+            <p className="exp-duration">{exp.duration}</p>
           </div>
         ))}
       </div>
@@ -45,4 +44,3 @@ function Experience() {
 }
 
 export default Experience;
- 

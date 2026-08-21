@@ -9,14 +9,15 @@ import Experience from "./Experience.jsx";
 import Projects from "./Projects.jsx";
 import Contact from "./Contact.jsx";
 import Footer from "./Footer.jsx";
+import VerticalProgress from "./VerticalProgress.jsx";
 
 // Animation settings for all sections
 const sectionVariant = {
-  hidden: { opacity: 0, y: 50 },
+  hidden: { opacity: 0, y: 40 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 1.1, ease: "easeOut" }
+    transition: { duration: 0.75, ease: [0.25, 0.46, 0.45, 0.94] }
   }
 };
 
@@ -43,6 +44,10 @@ function Home() {
         <div className="stars3"></div>
         <div className="bubbles"></div>
       </div>
+
+      {/* ⭐ DUAL VERTICAL SCROLL PROGRESS (Left & Right) */}
+      <VerticalProgress position="left" />
+      <VerticalProgress position="right" />
 
       {/* ⭐ MAIN CONTENT */}
       <div className="page-content">

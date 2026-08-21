@@ -1,3 +1,67 @@
+/* ===== GOOGLE FONTS ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* ============================= */
+/*       DESIGN TOKENS           */
+/* ============================= */
+:root {
+  /* Accent — Electric Indigo/Violet */
+  --accent:        #7c5cfc;
+  --accent-light:  #a78bfa;
+  --accent-dark:   #5b3ef0;
+  --accent-glow:   rgba(124, 92, 252, 0.45);
+  --accent-glow-sm:rgba(124, 92, 252, 0.2);
+
+  /* Highlight — Warm Gold (for grades, duration badges) */
+  --gold:          #f0b429;
+  --gold-light:    #fcd34d;
+
+  /* Background */
+  --bg-deep:       #05050f;
+  --bg-mid:        rgba(255, 255, 255, 0.04);
+  --bg-card:       rgba(124, 92, 252, 0.04);
+
+  /* Borders */
+  --border-dim:    rgba(255, 255, 255, 0.08);
+  --border-accent: rgba(124, 92, 252, 0.55);
+
+  /* Text */
+  --text-primary:  #f0efff;
+  --text-muted:    rgba(200, 200, 220, 0.8);
+  --text-dim:      rgba(160, 160, 190, 0.7);
+
+  /* Transitions */
+  --transition:    0.3s ease;
+}
+
+/* ============================= */
+/*        GLOBAL RESET           */
+/* ============================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 html {
   scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection highlight */
+::selection {
+  background: rgba(124, 92, 252, 0.35);
+  color: white;
+}
+
+/* Cursor on interactive elements */
+button, a, [role="button"], .nav-link {
+  cursor: pointer;
 }

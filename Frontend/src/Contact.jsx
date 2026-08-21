@@ -17,8 +17,35 @@ export default function Contact() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  const toastBase = {
+    position: "top-right",
+    autoClose: 3000,
+    closeButton: false,
+    hideProgressBar: false,
+  };
+
+  const toastStyle = {
+    fontFamily: "'Inter', Arial, sans-serif",
+    background: "rgba(8, 7, 22, 0.92)",
+    backdropFilter: "blur(18px)",
+    WebkitBackdropFilter: "blur(18px)",
+    border: "1px solid rgba(124, 92, 252, 0.55)",
+    borderRadius: "14px",
+    color: "#e8e4ff",
+    boxShadow: "0 0 28px rgba(124, 92, 252, 0.4), 0 8px 32px rgba(0,0,0,0.6)",
+    fontSize: "0.92rem",
+    fontWeight: 500,
+    letterSpacing: "0.2px",
+    padding: "14px 20px",
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const toastId = toast.loading("✦ Sending message...", {
+      ...toastBase,
+      style: toastStyle,
+    });
 
     try {
       await addDoc(collection(firestore, "contacts"), {
@@ -28,42 +55,51 @@ export default function Contact() {
         createdAt: serverTimestamp(),
       });
 
-      toast.success("Message sent successfully", {
-        position: "top-center",
-        autoClose: 2000,
+      toast.update(toastId, {
+        render: "✦ Message sent successfully!",
+        type: "success",
+        isLoading: false,
+        autoClose: 3000,
         closeButton: false,
-        progressStyle: { background: "#ff2d62" },
-        style: {
-          background: "rgba(0,0,0,0.6)",
-          backdropFilter: "blur(8px)",
-          border: "1px solid #ff2d62",
-          color: "white",
-          boxShadow: "0 0 15px #ff2d62",
+        style: toastStyle,
+        progressStyle: {
+          background: "linear-gradient(to right, #5b3ef0, #a78bfa)",
+          boxShadow: "0 0 8px #a78bfa",
+          height: "3px",
         },
       });
 
       setForm({ name: "", email: "", message: "" });
     } catch (error) {
-        console.error("Firebase Error:", error);
-      toast.error("Failed to send message", {
-        position: "top-center",
-        autoClose: 2000,
+      console.error("Firebase Error:", error);
+      toast.update(toastId, {
+        render: "✦ Failed to send. Try again.",
+        type: "error",
+        isLoading: false,
+        autoClose: 3000,
         closeButton: false,
-        progressStyle: { background: "#ff2d62" },
         style: {
-          background: "rgba(0,0,0,0.6)",
-          backdropFilter: "blur(8px)",
-          border: "1px solid #ff2d62",
-          color: "white",
-          boxShadow: "0 0 15px #ff2d62",
+          ...toastStyle,
+          border: "1px solid rgba(239, 68, 68, 0.55)",
+          boxShadow: "0 0 28px rgba(239, 68, 68, 0.3), 0 8px 32px rgba(0,0,0,0.6)",
+        },
+        progressStyle: {
+          background: "linear-gradient(to right, #b91c1c, #f87171)",
+          height: "3px",
         },
       });
     }
   };
 
   return (
-    <div className="contact-wrapper container" id="contact">
-      <ToastContainer />
+    <div className="contact-wrapper container">
+      <ToastContainer
+        position="top-right"
+        closeButton={false}
+        toastClassName="portfolio-toast"
+        style={{ top: "24px", right: "24px" }}
+      />
+
 
       <h2 className="contact-title">Contact</h2>
 

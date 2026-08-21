@@ -1,114 +1,138 @@
-/* Rounded glass navbar */
+/* ============================= */
+/*       GLASSMORPHISM NAVBAR    */
+/* ============================= */
 .custom-navbar {
-  background: #0d0d0d !important;
-  border-radius: 30px;
-  border: 2px solid #ff2d62 !important;
-  padding: 10px 25px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(6px);
-  max-width: 650px;
-  margin: 20px auto;
-  position: sticky;
-  top: 2rem;
-  z-index: 100;
-  box-shadow: 0 0 20px rgba(255, 45, 98, 0.7);
+  background: rgba(8, 7, 22, 0.85) !important;
+  border-radius: 50px;
+  border: 1.5px solid var(--border-accent) !important;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  width: calc(100% - 40px);
+  max-width: 680px;
+  margin: 0 auto;
+  position: fixed;
+  top: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  box-shadow:
+    0 0 20px var(--accent-glow),
+    0 4px 30px rgba(0, 0, 0, 0.6);
+  transition: box-shadow 0.4s ease;
 }
 
-/* NAV LINKS */
+.custom-navbar:hover {
+  box-shadow:
+    0 0 32px var(--accent-glow),
+    0 4px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* ============================= */
+/*          NAV LINKS            */
+/* ============================= */
 .custom-navbar .nav-link {
-  color: white !important;
-  font-size: 1rem;
+  color: rgba(220, 215, 255, 0.8) !important;
+  font-size: 0.95rem;
   font-weight: 500;
-  transition: 0.5s ease;
+  letter-spacing: 0.4px;
+  padding: 6px 4px !important;
+  transition: color 0.25s ease, text-shadow 0.25s ease;
   cursor: pointer !important;
+  position: relative;
+}
+
+.custom-navbar .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--accent-light);
+  border-radius: 2px;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.custom-navbar .nav-link:hover::after,
+.custom-navbar .active-link::after {
+  width: 80%;
+  left: 10%;
 }
 
 .custom-navbar .nav-link:hover {
-  color: #ff4f7b !important;
-  text-shadow: 0 0 8px #ff2d62;
-  cursor: pointer !important;
-  user-select: none !important;
+  color: var(--accent-light) !important;
+  text-shadow: 0 0 12px var(--accent-glow);
 }
 
-/* Mobile dropdown styling */
-@media (max-width: 991px) {
-  #navbarCentered {
-    background: rgba(0, 0, 0, 0.55);
-    border-radius: 20px;
-    padding: 20px;
-    margin-top: 10px;
-  }
-}
-
-/* Extra link styling */
-.nav-link {
-  cursor: pointer !important;
-  user-select: none !important;
-  transition: 0.3s ease;
-}
-
-/* Highlight current section */
+/* ============================= */
+/*         ACTIVE LINK           */
+/* ============================= */
 .active-link {
-  color: #ff4f7b !important;
-  text-shadow: 0 0 10px #ff4f7b;
-  font-weight: 600;
+  color: var(--accent-light) !important;
+  text-shadow: 0 0 12px var(--accent-glow);
+  font-weight: 600 !important;
 }
 
-/* Hamburger white */
+/* ============================= */
+/*     HAMBURGER (Mobile)        */
+/* ============================= */
 .navbar-toggler {
-  border-color: #ff4f7b !important;
+  border-color: var(--border-accent) !important;
+  border-radius: 10px;
+  padding: 4px 10px;
+  transition: border-color 0.3s ease;
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 3px var(--accent-glow-sm);
 }
 
 .navbar-toggler-icon {
-  filter: invert(1); /* makes icon white */
+  filter: invert(1);
 }
 
-/* Mobile: center Portfolio title */
+/* ============================= */
+/*     MOBILE DROPDOWN           */
+/* ============================= */
+@media (max-width: 991px) {
+  #navbarCentered {
+    background: rgba(7, 6, 20, 0.94);
+    border-radius: 20px;
+    padding: 18px;
+    margin-top: 12px;
+    border: 1px solid var(--border-accent);
+  }
+}
+
+/* ============================= */
+/*     PORTFOLIO TITLE (Mobile)  */
+/* ============================= */
 .portfolio-title {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 700;
-  color: white;
-  text-shadow: 0 0 8px #ff2d62;
+  color: var(--accent-light);
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 12px var(--accent-glow);
 }
 
-/* Hide Portfolio on desktop */
 @media (min-width: 992px) {
   .portfolio-title {
     display: none !important;
   }
 }
 
-/* Push hamburger to right on mobile */
+/* ============================= */
+/*    SECTION SCROLL OFFSET      */
+/* ============================= */
+section,
+[id] {
+  scroll-margin-top: 85px !important;
+}
+
 @media (max-width: 991px) {
-  .navbar-toggler {
-    margin-left: auto;
+  section,
+  [id] {
+    scroll-margin-top: 80px !important;
   }
 }
 
-
-
-/* Correct section scroll offset for navbar */
-section {
-  scroll-margin-top: 50px !important; /* for PC */
-}
-
-/* Medium screens */
-@media (max-width: 768px) {
-  section {
-    scroll-margin-top: 400px !important;
-  }
-}
-
-/* Very small / short mobile screens */
-@media (max-width: 480px) {
-  section {
-    scroll-margin-top: 450px !important;
-  }
-}
-
-/* VERY short devices like iPhone SE / small android */
-@media (max-height: 650px) {
-  section {
-    scroll-margin-top: 500px !important;
-  }
-}

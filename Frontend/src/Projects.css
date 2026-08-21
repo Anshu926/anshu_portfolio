@@ -1,147 +1,174 @@
-/* WRAPPER */
+/* ============================= */
+/*        PROJECTS SECTION       */
+/* ============================= */
 .projects-wrapper {
-  padding: 100px 0;
-  color: white;
-  text-align: left;     /* LEFT TITLE */
-  padding-left: 2rem;   /* SAME AS SKILLS, EDUCATION */
+  padding: 80px 0;
+  color: var(--text-primary);
 }
 
-/* PINK TITLE */
+/* TITLE */
 .projects-title {
   font-size: 2rem;
-  font-weight: 900;
-  color: #ff2d62;
+  font-weight: 800;
+  color: var(--accent-light);
+  text-align: left;
   margin-bottom: 40px;
-  text-shadow: 0 0 10px rgba(255, 45, 98, 0.5);
+  letter-spacing: -0.3px;
+  text-shadow: 0 0 20px var(--accent-glow);
 }
 
-/* GRID */
+/* ============================= */
+/*          GRID LAYOUT          */
+/* ============================= */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-  gap: 40px;
-  padding-right: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 22px;
 }
 
-/* CARD */
+/* ============================= */
+/*           CARD                */
+/* ============================= */
 .project-card {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 15px;
-  border: 1px solid #222;
-  backdrop-filter: blur(10px);
+  background: var(--bg-card);
+  border-radius: 16px;
+  border: 1px solid var(--border-dim);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   overflow: hidden;
   position: relative;
-  transition: 0.35s ease;
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+  will-change: transform;
 }
 
+/* Shine sweep */
 .project-card::after {
   content: "";
   position: absolute;
-  top: -140%;
-  left: 0;
-  width: 100%;
-  height: 140%;
+  top: -120%;
+  left: -60%;
+  width: 60%;
+  height: 200%;
   background: linear-gradient(
     120deg,
     transparent,
-    rgba(255, 255, 255, 0.08), 
+    rgba(167, 139, 250, 0.1),
     transparent
   );
   transition: 0.6s ease;
-
-  pointer-events: none;   /* ⭐ FIXES BUTTON HOVER */
+  pointer-events: none;
 }
-
 
 .project-card:hover::after {
-  top: 0;
+  top: -20%;
+  left: 140%;
 }
 
-/* Neon Glow On Hover */
 .project-card:hover {
-  border-color: #ff2d62;
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 0 25px rgba(255, 45, 98, 0.55);
+  border-color: var(--accent);
+  transform: translateY(-10px) scale(1.01);
+  box-shadow:
+    0 0 30px var(--accent-glow),
+    0 16px 40px rgba(0, 0, 0, 0.5);
 }
 
-/* IMAGE */
+/* ============================= */
+/*          IMAGE                */
+/* ============================= */
 .project-img {
   width: 100%;
-  height: 230px;
+  height: 170px;
   object-fit: cover;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--border-dim);
+  transition: filter 0.35s ease;
 }
 
-/* INFO */
+.project-card:hover .project-img {
+  filter: brightness(1.1) saturate(1.1);
+}
+
+/* ============================= */
+/*          INFO AREA            */
+/* ============================= */
 .project-info {
-  padding: 20px;
+  padding: 14px 16px 16px;
 }
 
 .project-info h3 {
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 7px;
+  color: white;
+  line-height: 1.35;
 }
 
 .project-info p {
-  color: #ccc;
-  font-size: 0.95rem;
-  margin-bottom: 18px;
-  line-height: 1.5;
+  color: var(--text-muted);
+  font-size: 0.83rem;
+  margin-bottom: 14px;
+  line-height: 1.55;
 }
 
-/* BUTTON GROUP */
+/* ============================= */
+/*         BUTTON GROUP          */
+/* ============================= */
 .project-buttons {
   display: flex;
-  gap: 12px;
+  gap: 10px;
+  flex-wrap: wrap;
 }
-/* BUTTON BASE */
+
 .project-btn {
-  padding: 10px 18px;
-  border-radius: 8px;
+  padding: 7px 16px;
+  border-radius: 50px;
   font-weight: 600;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.78rem;
   transition: all 0.3s ease;
   color: white;
   display: inline-block;
+  letter-spacing: 0.3px;
 }
 
-/* Live Button (Pink Border) */
+/* Live — Accent filled on hover */
 .live-btn {
-  border: 2px solid #ff2d62;
+  border: 1.5px solid var(--accent);
   background: transparent;
+  color: var(--accent-light);
 }
 
 .live-btn:hover {
-  background: #ff2d62;
+  background: var(--accent);
   color: white;
-  box-shadow: 0 0 12px #ff2d62;
+  box-shadow: 0 0 18px var(--accent-glow);
   transform: translateY(-2px);
 }
 
-/* Code Button (Purple Border) */
+/* Code — Neutral ghost button */
 .code-btn {
-  border: 2px solid #ff4f7b;
+  border: 1.5px solid var(--border-dim);
   background: transparent;
+  color: var(--text-muted);
 }
 
 .code-btn:hover {
-  background: #ff4f7b;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
   color: white;
-  box-shadow: 0 0 12px #ff4f7b;
   transform: translateY(-2px);
 }
 
-
-/* MOBILE */
-@media (max-width: 500px) {
-  .projects-wrapper {
-    padding-left: 1rem;
-  }
-
-  .project-buttons {
-    flex-direction: column;
+/* ============================= */
+/*         RESPONSIVE            */
+/* ============================= */
+@media (max-width: 900px) {
+  .projects-title {
     text-align: center;
   }
+}
+
+@media (max-width: 500px) {
+  .projects-grid { grid-template-columns: 1fr; }
+  .project-buttons { flex-direction: column; text-align: center; }
+  .project-btn { text-align: center; }
 }

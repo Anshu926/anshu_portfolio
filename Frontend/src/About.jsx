@@ -5,7 +5,7 @@ import Typewriter from "./Typewriter";
 
 function About() {
   return (
-    <div className="about-wrapper container" id="about">
+    <div className="about-wrapper container">
       <div className="row align-items-center">
         {/* LEFT SIDE */}
         <div className="col-md-6 text-start">

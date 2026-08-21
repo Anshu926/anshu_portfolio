@@ -1,64 +1,89 @@
-/* WRAPPER */
+/* ============================= */
+/*        CONTACT SECTION        */
+/* ============================= */
 .contact-wrapper {
-  padding: 90px 0; /* smaller */
-  color: white;
-  text-align: left; /* Title on left */
-  padding-left: 2rem;
+  padding: 80px 0;
+  color: var(--text-primary);
 }
 
-/* PINK TITLE */
+/* TITLE */
 .contact-title {
   font-size: 2rem;
-  font-weight: 900;
-  color: #ff2d62;           /* pink like other sections */
+  font-weight: 800;
+  color: var(--accent-light);
+  text-align: left;
   margin-bottom: 35px;
-  text-shadow: 0 0 10px rgba(255, 45, 98, 0.5);
+  letter-spacing: -0.3px;
+  text-shadow: 0 0 20px var(--accent-glow);
 }
 
-/* CARD (smaller height + more compact) */
+/* ============================= */
+/*           CARD                */
+/* ============================= */
 .contact-card {
-  background: transparent;
-  backdrop-filter: blur(10px);
+  background: rgba(124, 92, 252, 0.03);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-radius: 20px;
-  padding: 30px 30px;     /* smaller */
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.08);
+  padding: 36px 32px;
+  border: 1px solid var(--border-accent);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.35), 0 0 60px var(--accent-glow-sm);
   display: flex;
   align-items: center;
-  min-height: 350px;      /* reduced size */
+  min-height: 360px;
 }
 
-/* FORM SIDE */
+/* ============================= */
+/*         FORM LAYOUT           */
+/* ============================= */
 .form-side {
   display: flex;
   justify-content: center;
 }
 
-/* FORM */
 .contact-form {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 20px;
 }
 
-/* INPUT */
+/* ============================= */
+/*          INPUT FIELDS         */
+/* ============================= */
 .input-group label {
   font-weight: 600;
-  margin-bottom: 5px;
+  font-size: 0.88rem;
+  letter-spacing: 0.3px;
+  margin-bottom: 7px;
   display: block;
+  color: var(--text-muted);
 }
 
 .input-group input,
 .input-group textarea {
   width: 100%;
-  padding: 12px 15px;
+  padding: 12px 16px;
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1.5px solid var(--border-dim);
   background: rgba(0, 0, 0, 0.45);
-  color: white;
+  color: var(--text-primary);
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 0.95rem;
   outline: none;
-  transition: 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-group input::placeholder,
+.input-group textarea::placeholder {
+  color: rgba(167, 139, 250, 0.3);
+}
+
+/* Accent glow focus */
+.input-group input:focus,
+.input-group textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow-sm), 0 0 14px var(--accent-glow-sm);
 }
 
 .input-group textarea {
@@ -66,51 +91,152 @@
   resize: none;
 }
 
-/* BUTTON */
+/* ============================= */
+/*         SEND BUTTON           */
+/* ============================= */
 .contact-btn {
-  background: #ff4f7b;
+  background: linear-gradient(135deg, var(--accent-dark), var(--accent), var(--accent-light));
+  background-size: 200% 200%;
+  animation: gradientShift 4s ease infinite;
   color: white;
-  padding: 13px 25px;
-  border-radius: 10px;
+  padding: 13px 28px;
+  border-radius: 50px;
   border: none;
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 600;
-  transition: 0.3s ease;
+  font-family: 'Inter', Arial, sans-serif;
+  letter-spacing: 0.4px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 20px var(--accent-glow);
+  align-self: flex-start;
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .contact-btn:hover {
-  background: #ff2d62;
   transform: translateY(-3px);
-  box-shadow: 0 0 12px #ff2d62;
+  box-shadow: 0 8px 32px var(--accent-glow);
 }
 
-/* MODEL SIDE */
+.contact-btn:active {
+  transform: translateY(-1px);
+}
+
+/* ============================= */
+/*        3D MODEL SIDE          */
+/* ============================= */
 .contact-model-box {
   width: 90%;
-  height: 260px; /* smaller */
+  height: 280px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .contact-wrapper {
-    padding-left: 1rem;
-  }
-
-  .contact-card {
-    flex-direction: column;
-    padding: 25px;
-  }
-
-  .contact-model-box {
-    margin-top: 25px;
-    height: 240px;
+/* ============================= */
+/*          RESPONSIVE           */
+/* ============================= */
+@media (max-width: 900px) {
+  .contact-title {
+    text-align: center;
   }
 }
+
 @media (max-width: 768px) {
-  .contact-model-box {
-    display: none !important;
+  .contact-card {
+    flex-direction: column;
+    padding: 25px 20px;
   }
-} 
+
+  .contact-model-box { display: none !important; }
+  .contact-btn { align-self: stretch; text-align: center; }
+}
+
+/* ============================= */
+/*    TOAST NOTIFICATION OVERRIDES
+      (react-toastify → site theme)
+/* ============================= */
+
+/* Remove the default colored left-side border strip */
+.portfolio-toast.Toastify__toast {
+  box-shadow: none !important; /* we set shadow via inline style */
+}
+
+/* Remove default white background react-toastify injects */
+.Toastify__toast-theme--light {
+  background: transparent !important;
+}
+
+/* ─── Success icon → accent lavender ─── */
+.Toastify__toast--success .Toastify__toast-icon svg {
+  fill: #a78bfa !important;
+}
+
+/* ─── Error icon → soft red ─── */
+.Toastify__toast--error .Toastify__toast-icon svg {
+  fill: #f87171 !important;
+}
+
+/* ─── Progress bar track background ─── */
+.Toastify__progress-bar-theme--light {
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* ─── Toast body text ─── */
+.Toastify__toast-body {
+  font-family: 'Inter', Arial, sans-serif !important;
+  font-size: 0.92rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.2px !important;
+  color: #e8e4ff !important;
+  padding: 0 4px !important;
+}
+
+/* ─── Remove default left-border strip ─── */
+.Toastify__toast::before {
+  display: none !important;
+}
+
+/* ─── Close Button (X icon) ─── */
+.Toastify__close-button {
+  color: var(--accent-light) !important;
+  opacity: 0.7 !important;
+  align-self: center !important;
+  margin-left: 8px !important;
+  transition: opacity 0.2s ease, transform 0.2s ease, color 0.2s ease !important;
+  background: transparent !important;
+  border: none !important;
+  cursor: pointer !important;
+}
+
+.Toastify__close-button:hover {
+  opacity: 1 !important;
+  color: #ffffff !important;
+  transform: scale(1.15) !important;
+}
+
+.Toastify__close-button > svg {
+  fill: currentColor !important;
+  width: 15px !important;
+  height: 15px !important;
+}
+
+/* ─── Loading Spinner ─── */
+.Toastify__spinner {
+  border-color: rgba(124, 92, 252, 0.25) !important;
+  border-right-color: var(--accent-light) !important;
+  width: 18px !important;
+  height: 18px !important;
+}
+
+/* ─── Progress Bar Radius ─── */
+.Toastify__progress-bar {
+  border-bottom-left-radius: 14px !important;
+  border-bottom-right-radius: 14px !important;
+}
+
+

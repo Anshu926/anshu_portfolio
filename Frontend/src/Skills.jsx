@@ -4,17 +4,24 @@ import { useEffect, useRef } from "react";
 
 function Skills() {
   const skills = [
-    { name: "HTML", svg: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
-    { name: "CSS", svg: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
-    { name: "JavaScript", svg: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
-    { name: "Bootstrap", svg: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" },
+    { name: "Python", svg: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+    { name: "TensorFlow", svg: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" },
+    { name: "PyTorch", svg: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" },
+    { name: "Scikit-Learn", svg: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg" },
+    { name: "OpenCV", svg: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" },
+    { name: "NumPy", svg: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" },
+    { name: "Pandas", svg: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" },
     { name: "React", svg: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
     { name: "Node.js", svg: "https://www.svgrepo.com/show/303266/nodejs-icon-logo.svg" },
     { name: "Express", svg: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
     { name: "MongoDB", svg: "https://www.svgrepo.com/show/331488/mongodb.svg" },
-    { name: "GitHub", svg: "https://www.svgrepo.com/show/512317/github-142.svg" },
+    { name: "JavaScript", svg: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+    { name: "Flutter", svg: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" },
     { name: "Firebase", svg: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" },
-    { name: "Flutter", svg: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" }
+    { name: "HTML", svg: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+    { name: "CSS", svg: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+    { name: "Bootstrap", svg: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" },
+    { name: "GitHub", svg: "https://www.svgrepo.com/show/512317/github-142.svg" }
   ];
 
   const dragRef = useRef(null);
@@ -70,7 +77,7 @@ function Skills() {
   }, []);
 
   return (
-    <div className="skills-wrapper" id="skills">
+    <div className="skills-wrapper container">
       <h2 className="skills-title">My Skills</h2>
 
       <div className="drag-scroll-container" ref={dragRef}>

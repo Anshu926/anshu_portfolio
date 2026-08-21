@@ -1,0 +1,118 @@
+/* ============================= */
+/*   VERTICAL SCROLL PROGRESS    */
+/* ============================= */
+.v-progress-wrapper {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 999;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Left Position */
+.v-progress-wrapper.pos-left {
+  left: 28px;
+  right: auto;
+}
+
+/* Right Position */
+.v-progress-wrapper.pos-right {
+  right: 28px;
+  left: auto;
+}
+
+/* Glassmorphic Track */
+.v-progress-track {
+  position: relative;
+  width: 3px;
+  height: clamp(200px, 32vh, 280px);
+  background: rgba(124, 92, 252, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.4);
+}
+
+/* Animated Neon Progress Fill (extends to active checkpoint) */
+.v-progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(
+    to bottom,
+    var(--accent-dark) 0%,
+    var(--accent) 70%,
+    var(--accent-light) 100%
+  );
+  border-radius: 50px;
+  box-shadow:
+    0 0 10px var(--accent),
+    0 0 20px var(--accent-glow);
+}
+
+/* ============================= */
+/*     5 SECTION CHECKPOINTS     */
+/* ============================= */
+
+/* Base Checkpoint Dot (Upcoming sections: smaller, semi-transparent outline) */
+.v-progress-dot {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(10, 8, 24, 0.9);
+  border: 1.5px solid rgba(124, 92, 252, 0.35);
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 2;
+  opacity: 0.45;
+}
+
+/* Visited Checkpoint (filled purple dot) */
+.v-progress-dot.visited {
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-color: var(--accent-light);
+  box-shadow: 0 0 8px var(--accent-glow);
+  opacity: 0.85;
+}
+
+/* Active Checkpoint (slightly larger with soft purple neon glow) */
+.v-progress-dot.active {
+  width: 10px;
+  height: 10px;
+  background: var(--accent-light);
+  border: 2px solid #ffffff;
+  box-shadow:
+    0 0 10px var(--accent-light),
+    0 0 22px var(--accent-glow);
+  opacity: 1;
+}
+
+/* ============================= */
+/*        RESPONSIVENESS         */
+/* ============================= */
+
+/* Tablet adjustments */
+@media (max-width: 1024px) {
+  .v-progress-wrapper.pos-left {
+    left: 16px;
+  }
+  .v-progress-wrapper.pos-right {
+    right: 16px;
+  }
+}
+
+/* Hide on mobile devices */
+@media (max-width: 767px) {
+  .v-progress-wrapper {
+    display: none !important;
+  }
+}
