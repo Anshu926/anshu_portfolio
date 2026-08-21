@@ -6,10 +6,9 @@ A modern personal portfolio website showcasing my skills, projects, certificatio
 
 ## Live Website
 
-https://anshu-bongade.vercel.app/
-https://6a883b12c305cbfbf04cdbe9--anshubongade-portfolio.netlify.app/
+- **Vercel:** https://anshu-bongade.vercel.app/
+- **Netlify:** https://6a883b12c305cbfbf04cdbe9--anshubongade-portfolio.netlify.app/
 
----
 
 ## About The Website
 
