@@ -12,7 +12,7 @@ function Projects() {
       img: projStayNest,
       title: "StayNest — Accommodation & Meal Booking Platform",
       desc: "Full-stack web platform connecting seekers with verified PGs, rental rooms, hostels, and daily tiffin meal services.",
-      live: "https://github.com/Anshu926/StayNest",
+      live: "https://staynest-platform.vercel.app/",
       code: "https://github.com/Anshu926/StayNest",
     },
     {
