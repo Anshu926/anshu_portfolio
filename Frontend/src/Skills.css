@@ -3,7 +3,11 @@
 /* ============================= */
 .skills-wrapper {
   color: var(--text-primary);
-  padding: 20px 0 40px;
+  min-height: calc(80vh - 80px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 0 80px;
 }
 
 .skills-title {
@@ -142,6 +146,7 @@
 }
 
 @media (max-width: 768px) {
+  .skills-wrapper  { min-height: auto; padding: 50px 0; }
   .skill-card      { min-width: 110px; margin: 0 12px; padding: 14px 18px; }
   .skill-svg       { width: 40px; height: 40px; }
   .skill-card span { font-size: 0.85rem; }

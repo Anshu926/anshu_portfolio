@@ -1,4 +1,5 @@
 import "./Projects.css";
+import projStayNest from "./assets/staynest.jpg";
 import proj1 from "./assets/food_ordering.png";
 import proj2 from "./assets/wanderlust.png";
 import proj3 from "./assets/e_eommerce.png";
@@ -7,15 +8,20 @@ import proj5 from "./assets/gesture-calculator.png";
 
 function Projects() {
   const projectData = [
-    
     {
-      img: proj1,
-      title: "Food Ordering System",
-      desc: "Dynamic food ordering platform with menus, ordering flow, and responsive UI.",
-      live: "https://meal-matka-3.onrender.com/home",
-      code: "https://github.com/Anshu926/meal_matka",
+      img: projStayNest,
+      title: "StayNest — Accommodation & Meal Booking Platform",
+      desc: "Full-stack web platform connecting seekers with verified PGs, rental rooms, hostels, and daily tiffin meal services.",
+      live: "https://github.com/Anshu926/StayNest",
+      code: "https://github.com/Anshu926/StayNest",
     },
-    
+    {
+      img: proj4,
+      title: "Customer Behavior Analytics Platform",
+      desc: "AI-powered customer analytics platform to predict satisfaction, identify customer segments, and deliver insights through an interactive dashboard.",
+      live: "https://customer-analytics-platform-xoovips4gkx6tcfrzh6mby.streamlit.app/",
+      code: "https://github.com/Anshu926/Customer-Analytics-Platform",
+    },
     {
       img: proj2,
       title: "Destination Listing Platform",
@@ -31,11 +37,11 @@ function Projects() {
       code: "https://github.com/Anshu926/SHOPPING-WEBSITE",
     },
     {
-      img: proj4,
-      title: "Customer Behavior Analytics Platform",
-      desc: "AI-powered customer analytics platform to predict satisfaction, identify customer segments, and deliver insights through an interactive dashboard.",
-      live: "https://customer-analytics-platform-xoovips4gkx6tcfrzh6mby.streamlit.app/",
-      code: "https://github.com/Anshu926/Customer-Analytics-Platform",
+      img: proj1,
+      title: "Food Ordering System",
+      desc: "Dynamic food ordering platform with menus, ordering flow, and responsive UI.",
+      live: "https://meal-matka-3.onrender.com/home",
+      code: "https://github.com/Anshu926/meal_matka",
     },
     {
       img: proj5,
@@ -44,7 +50,6 @@ function Projects() {
       live: "https://github.com/Anshu926/Real-Time-Virtual-Gesture-Calculator",
       code: "https://github.com/Anshu926/Real-Time-Virtual-Gesture-Calculator",
     }
-
   ];
 
   return (
