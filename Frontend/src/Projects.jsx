@@ -19,8 +19,8 @@ function Projects() {
       img: proj4,
       title: "Customer Behavior Analytics Platform",
       desc: "AI-powered customer analytics platform to predict satisfaction, identify customer segments, and deliver insights through an interactive dashboard.",
-      live: "https://customer-analytics-platform-xoovips4gkx6tcfrzh6mby.streamlit.app/",
-      code: "https://github.com/Anshu926/Customer-Analytics-Platform",
+      live: "https://customer-behavior-analytics-platform-app.streamlit.app/",
+      code: "https://github.com/Anshu926/Customer-Behavior-Analytics-Platform",
     },
     {
       img: proj2,
